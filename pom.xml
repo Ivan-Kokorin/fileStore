@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.task</groupId>
-	<artifactId>file</artifactId>
+	<artifactId>file_store</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>file</name>
 	<description>Project for file store</description>
@@ -41,6 +41,12 @@
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 			<version>3.1.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-s3</artifactId>
+			<version>1.12.488</version>
 		</dependency>
 	</dependencies>
 

@@ -1,11 +1,13 @@
 package com.task.file.model.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 
 import java.time.LocalDateTime;
 
 
 @Entity
+@Table(name = "file_info")
 public class FileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +17,7 @@ public class FileEntity {
     @Column
     private String keyFile;
     @Column
-    private String pathDirectory;
-    @Column
-    private String bucket;
+    private String path;
     @Column
     private String contentType;
     @Column
@@ -28,6 +28,13 @@ public class FileEntity {
 
     @Column
     private LocalDateTime updatedDate;
+
+    @Column
+    private String typeStore;
+
+    @Lob
+    @Column(columnDefinition="BLOB")
+    private byte[] content;
 
     @PrePersist
     public void putCreatedDate() {
@@ -63,18 +70,12 @@ public class FileEntity {
         this.keyFile = keyFile;
     }
 
-    public String getPathDirectory() {
-        return pathDirectory;
+    public String getPath() {
+        return path;
     }
 
-    public void setPathDirectory(String link) {
-        this.pathDirectory = link;
-    }
-    public String getBucket() {
-        return bucket;
-    }
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public String getContentType() {
@@ -107,5 +108,36 @@ public class FileEntity {
 
     public void setUpdatedDate(LocalDateTime updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    public String getTypeStore() {
+        return typeStore;
+    }
+
+    public void setTypeStore(String typeStore) {
+        this.typeStore = typeStore;
+    }
+
+    public byte[] getContent() {
+        return content;
+    }
+
+    public void setContent(byte[] content) {
+        this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "FileEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", keyFile='" + keyFile + '\'' +
+                ", path='" + path + '\'' +
+                ", contentType='" + contentType + '\'' +
+                ", size=" + size +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                ", typeStore='" + typeStore + '\'' +
+                '}';
     }
 }

@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: data-base
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:fileStoreDb
@@ -17,3 +19,11 @@ spring:
   h2:
     console:
       enabled: true
+storage:
+  max-file-size: 128MB
+  max-request-size: 128MB
+  file-system:
+    path: D:\file
+  s3-cloud:
+    bucket: file-storage-s3
+    directory: Document

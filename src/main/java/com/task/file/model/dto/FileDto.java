@@ -7,15 +7,13 @@ public class FileDto {
     private Long id;
     private String name;
     private String keyFile;
-    private String pathDirectory;
-    private String bucket;
+    private String path;
     private String contentType;
     private Long size;
-
     private LocalDateTime createdDate;
-
     private LocalDateTime updatedDate;
-
+    private String typeStore;
+    private byte[] content;
     public Long getId() {
         return id;
     }
@@ -40,20 +38,12 @@ public class FileDto {
         this.keyFile = keyFile;
     }
 
-    public String getPathDirectory() {
-        return pathDirectory;
+    public String getPath() {
+        return path;
     }
 
-    public void setPathDirectory(String pathDirectory) {
-        this.pathDirectory = pathDirectory;
-    }
-
-    public String getBucket() {
-        return bucket;
-    }
-
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public String getContentType() {
@@ -86,5 +76,36 @@ public class FileDto {
 
     public void setUpdatedDate(LocalDateTime updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    public String getTypeStore() {
+        return typeStore;
+    }
+
+    public void setTypeStore(String typeStore) {
+        this.typeStore = typeStore;
+    }
+
+    public byte[] getContent() {
+        return content;
+    }
+
+    public void setContent(byte[] content) {
+        this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "FileDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", keyFile='" + keyFile + '\'' +
+                ", path='" + path + '\'' +
+                ", contentType='" + contentType + '\'' +
+                ", size=" + size +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                ", typeStore='" + typeStore + '\'' +
+                '}';
     }
 }

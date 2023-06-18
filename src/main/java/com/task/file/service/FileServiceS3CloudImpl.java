@@ -48,6 +48,11 @@ public class FileServiceS3CloudImpl implements FileService {
     private String nameBucket;
     @Value("${storage.s3-cloud.directory}")
     private String directory;
+
+    @Value("${storage.s3-cloud.host}")
+    String host;
+    @Value("${storage.s3-cloud.region}")
+    String region;
     private static final Logger LOG = LoggerFactory.getLogger(FileServiceS3CloudImpl.class);
     private final String MESSAGE_ABOUT_DELETED = "File success deleted";
     FileRepository fileRepository;
@@ -150,7 +155,7 @@ public class FileServiceS3CloudImpl implements FileService {
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .withEndpointConfiguration(
                         new AmazonS3ClientBuilder.EndpointConfiguration(
-                                "storage.yandexcloud.net", "ru-central1"
+                                host, region
                         )
                 )
                 .build();

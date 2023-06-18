@@ -27,3 +27,5 @@ storage:
   s3-cloud:
     bucket: file-storage-s3
     directory: Document
+    host: storage.yandexcloud.net
+    region: ru-central1
